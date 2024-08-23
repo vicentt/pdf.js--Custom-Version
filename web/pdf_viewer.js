@@ -294,7 +294,7 @@ class PDFViewer {
     this.#annotationEditorHighlightColors =
       options.annotationEditorHighlightColors || null;
     this.#enableHighlightFloatingButton =
-      options.enableHighlightFloatingButton === true;
+      options.enableHighlightFloatingButton === false;
     this.#enableUpdatedAddImage = options.enableUpdatedAddImage === true;
     this.#enableNewAltTextWhenAddingImage =
       options.enableNewAltTextWhenAddingImage === true;
