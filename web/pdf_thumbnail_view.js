@@ -28,7 +28,7 @@ import { RenderingCancelledException } from "pdfjs-lib";
 
 const DRAW_UPSCALE_FACTOR = 2; // See comment in `PDFThumbnailView.draw` below.
 const MAX_NUM_SCALING_STEPS = 3;
-const THUMBNAIL_WIDTH = 98; // px
+const THUMBNAIL_WIDTH = 200; // px
 
 /**
  * @typedef {Object} PDFThumbnailViewOptions
@@ -135,8 +135,16 @@ class PDFThumbnailView {
     const img = document.createElement("div");
     img.className = "thumbnailImage";
     this._placeholderImg = img;
+      
+    const numberPage = document.createElement("div");
+    numberPage.className = 'page-number';
+    const spanNumberPage = document.createElement("span");
+    spanNumberPage.innerHTML = this.id;
+    numberPage.appendChild(spanNumberPage);
 
     div.append(img);
+    div.append(numberPage);    
+
     anchor.append(div);
     container.append(anchor);
   }
