@@ -48,7 +48,7 @@ directory `build/chromium`.
 
 To get a local copy of the current code, clone it using git:
 
-    $ git clone https://github.com/mozilla/pdf.js.git
+    $ git clone  
     $ cd pdf.js
 
 Next, install Node.js via the [official package](https://nodejs.org) or via
@@ -138,3 +138,27 @@ Talk to us on Matrix:
 File an issue:
 
 + https://github.com/mozilla/pdf.js/issues/new
+
+
+## PDF Custom Version
+Mantener tu Fork Sincronizado con el Repositorio Original
+Para mantener tu fork actualizado con los cambios del repositorio original:
+
+Fetch de los cambios del repositorio original (upstream):
+
+Obtén los cambios del repositorio original:
+bash
+Copiar código
+git fetch upstream
+Integra los cambios a tu rama principal (generalmente main o master):
+bash
+Copiar código
+git checkout main
+git merge upstream/main
+Si hay conflictos, resuélvelos y commitea los cambios.
+Pujar los cambios actualizados a tu fork:
+
+Después de hacer el merge, empuja los cambios a tu fork:
+bash
+Copiar código
+git push origin main
