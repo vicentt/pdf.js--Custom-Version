@@ -94,6 +94,42 @@ See https://github.com/adobe-type-tools/cmap-resources
     <script src="customToolbar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+          // Obtener el valor del parámetro 'file' en la URL
+          var urlParams = new URLSearchParams(window.location.search);
+          var fileUrl = urlParams.get('file');
+  
+          if (fileUrl) {
+              // Decodificar la URL para asegurar que todos los caracteres especiales estén correctamente manejados
+              var decodedUrl = decodeURIComponent(fileUrl);
+              // Extraer el nombre del archivo a partir de la URL
+              var documentName = decodedUrl.substring(decodedUrl.lastIndexOf('/') + 1);
+               // Mostrar o usar el nombre del archivo
+              console.log("Nombre del archivo PDF: " + documentName);
+                  // Establecer un temporizador para ejecutar el delete después de 10 segundos
+              setTimeout(function() {
+                  $.ajax({
+                      url: 'https://atelierpdfplayer.com/storage.php?action=delete',  // La URL donde está tu script PHP
+                      type: 'GET',
+                      data: {
+                          action: 'delete',
+                          name: documentName
+                      },
+                      success: function(response) {
+                          console.log('Respuesta: ' + response);
+                      },
+                      error: function(xhr, status, error) {
+                          console.log('Error: ' + xhr.responseText);
+                      }
+                  });
+              }, 1000); // 10000 milisegundos = 10 segundos
+          } else {
+              console.log("No se encontró el parámetro 'file' en la URL.");
+          }
+         
+      });
+    </script>
   </head>
 
   <body tabindex="1">
