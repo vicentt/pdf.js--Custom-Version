@@ -94,7 +94,19 @@ class PDFPrintService {
     });
     this._printAnnotationStoragePromise =
       printAnnotationStoragePromise || Promise.resolve();
-    this.currentPage = -1;
+    // this.currentPage = -1;
+
+    const numPageElement = document.getElementById("pageNumber");
+    if (numPageElement) {
+      this.currentPage = parseInt(numPageElement.value, 10) - 2;
+    } else {
+      this.currentPage = -1; // Valor predeterminado si no se encuentra el elemento
+    }
+
+    pagesOverview.splice(this.currentPage+3, pagesOverview.length);
+
+
+
     // The temporary canvas where renderPage paints one page at a time.
     this.scratchCanvas = document.createElement("canvas");
   }
