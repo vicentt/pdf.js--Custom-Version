@@ -98,7 +98,7 @@
   ::selection {
     /* stylelint-disable declaration-block-no-duplicate-properties */
     /*#if !MOZCENTRAL*/
-    background: rgba(0 0 255 / 0.25);
+    background: rgba(150 29 63 / 0.25);
     /*#endif*/
     /* stylelint-enable declaration-block-no-duplicate-properties */
     background: color-mix(in srgb, AccentColor, transparent 75%);
